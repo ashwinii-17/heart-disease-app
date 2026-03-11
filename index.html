@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Heart Disease Prediction</title>
+
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+<script src="{{ url_for('static',filename='script.js') }}"></script>
+
+</head>
+
+<body>
+
+<div class="glass-container">
+
+<h1>Heart Disease Prediction</h1>
+
+<form action="/predict" method="post">
+
+<div class="step active">
+
+<h3>Basic Information</h3>
+
+<input type="number" name="age" placeholder="Age" required>
+<input type="number" name="male" placeholder="Sex (1 Male / 0 Female)" required>
+
+<button type="button" onclick="nextStep()">Next</button>
+
+</div>
+
+
+<div class="step">
+
+<h3>Heart Measurements</h3>
+
+<input type="number" name="chol" placeholder="Cholesterol" required>
+<input type="number" name="sysbp" placeholder="Systolic BP" required>
+<input type="number" name="diabp" placeholder="Diastolic BP" required>
+
+<button type="button" onclick="prevStep()">Previous</button>
+<button type="button" onclick="nextStep()">Next</button>
+
+</div>
+
+
+<div class="step">
+
+<h3>Health Indicators</h3>
+
+<input type="number" name="bmi" placeholder="BMI" required>
+<input type="number" name="heartrate" placeholder="Heart Rate" required>
+<input type="number" name="glucose" placeholder="Glucose" required>
+
+<button type="button" onclick="prevStep()">Previous</button>
+<button type="submit">Predict</button>
+
+</div>
+
+</form>
+
+<h2 class="{{ result_class }}">{{ prediction_text }}</h2>
+
+</div>
+
+</body>
+</html>
